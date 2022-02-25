@@ -127,10 +127,10 @@ public class Player {
     public void nonStrike(){
         batingStatus = BattingStatus.NotOut_NonStrike;
     }
-    public void bowlling(){
+    public void bowling(){
         ballingStatus = BallingStatus.Bowling;
     }
-    public void endBowlling(){
+    public void endBowling(){
         ballingStatus = BallingStatus.Bowled;
     }
 }
