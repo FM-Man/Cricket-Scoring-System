@@ -150,6 +150,7 @@ public class Team {
                 addBall();
                 onPitch.switchStrike();
                 changeBatter(false);
+                onPitch.switchStrike();
                 opponent.bowler().bowled();
                 opponent.bowler().gotWicket();
                 break;
@@ -191,7 +192,7 @@ public class Team {
             overs++;
             if(overs < 50){
                 onPitch.switchStrike();
-                switchBowler();
+                opponent.switchBowler();
             }
         }
     }

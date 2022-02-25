@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Driver {
@@ -26,7 +27,7 @@ public class Driver {
                     "U",
                     "V"
             };
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         ArrayList<Player> team1 = new ArrayList<>();
         ArrayList<Player> team2 = new ArrayList<>();
         for (int i=0; i<11; i++){

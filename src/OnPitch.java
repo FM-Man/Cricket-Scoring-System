@@ -28,8 +28,10 @@ public class OnPitch {
     public void changeBatter(Player newBatter, boolean isOnStrike){
         if(isOnStrike) {
             onStrike = newBatter;
+            setStrike();
         } else {
             nonStrike = newBatter;
+            setStrike();
             switchStrike();
         }
     }

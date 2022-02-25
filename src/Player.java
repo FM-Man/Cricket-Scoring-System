@@ -86,7 +86,7 @@ public class Player {
         return batingStatus;
     }
     public String over(){
-        return Math.floor(ballsBowled/6.0)+"."+ballsBowled%6;
+        return ballsBowled/6+"."+ballsBowled%6;
     }
     public int runGiven(){
         return runsGiven;

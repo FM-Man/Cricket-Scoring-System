@@ -1,8 +1,10 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Match {
     private final Team[] teams = new Team[2];
-    public Match(Team t1, Team t2){
+    public Match(Team t1, Team t2) throws FileNotFoundException {
         teams[0] = t1;
         teams[1] = t2;
         teams[0].opponent(teams[1]);
@@ -12,10 +14,14 @@ public class Match {
         teams[0].onBatting();
         teams[1].onBowling();
 
+
+        Scanner sc = new Scanner(new File("src\\balls.txt"));
+
         do {
             System.out.print("Enter this ball: ");
-            Scanner sc = new Scanner(System.in);
-            teams[0].play(sc.nextLine());
+            String thisBall = sc.nextLine();
+            System.out.println(thisBall);
+            teams[0].play(thisBall);
             printScore(teams[0],teams[1]);
         } while (teams[0].stillBatting());
 
@@ -24,7 +30,6 @@ public class Match {
 
         do {
             System.out.print("Enter this ball: ");
-            Scanner sc = new Scanner(System.in);
             teams[1].play(sc.nextLine());
             printScore(teams[1], teams[0]);
         } while (teams[1].stillBatting());
