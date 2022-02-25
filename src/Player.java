@@ -10,12 +10,18 @@ public class Player {
     private int runsGiven = 0;
     private int wicketsTaken = 0;
     private BallingStatus ballingStatus;
-    private final Team team;
+    private Team team;
 
     public Player(int id, String name, Team team){
         this.id=id;
         this.name=name;
         this.team = team;
+        batingStatus = BattingStatus.NotBatted;
+        ballingStatus = BallingStatus.NotBowled;
+    }
+    public Player(int id, String name){
+        this.id=id;
+        this.name=name;
         batingStatus = BattingStatus.NotBatted;
         ballingStatus = BallingStatus.NotBowled;
     }
@@ -48,6 +54,9 @@ public class Player {
     }
     public void gotWicket(){
         wicketsTaken++;
+    }
+    public void setTeam(Team team){
+        this.team = team;
     }
 
 
