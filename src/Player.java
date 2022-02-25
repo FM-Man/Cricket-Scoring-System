@@ -17,7 +17,7 @@ public class Player {
         this.name=name;
         this.team = team;
         batingStatus = BattingStatus.NotBatted;
-        ballingStatus = BallingStatus.NotBowlled;
+        ballingStatus = BallingStatus.NotBowled;
     }
 
 
@@ -86,7 +86,7 @@ public class Player {
         return wicketsTaken;
     }
     public double runrate(){
-        if (ballingStatus == BallingStatus.NotBowlled)
+        if (ballingStatus == BallingStatus.NotBowled)
             return 0.0;
         else
             return  (double) runsGiven/ballsBowled*6.0;
@@ -119,9 +119,9 @@ public class Player {
         batingStatus = BattingStatus.NotOut_NonStrike;
     }
     public void bowlling(){
-        ballingStatus = BallingStatus.Bowlling;
+        ballingStatus = BallingStatus.Bowling;
     }
     public void endBowlling(){
-        ballingStatus = BallingStatus.Bowlled;
+        ballingStatus = BallingStatus.Bowled;
     }
 }

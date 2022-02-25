@@ -1,5 +1,5 @@
 public enum BallingStatus {
-    Bowlled,
-    Bowlling,
-    NotBowlled
+    Bowled,
+    Bowling,
+    NotBowled
 }
