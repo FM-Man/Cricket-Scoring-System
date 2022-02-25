@@ -17,15 +17,6 @@ public class OnPitch {
     public boolean isFull(){
         return onStrike != null && nonStrike != null;
     }
-    public void setBatter(Player player){
-        if(onStrike != null) {
-            nonStrike = player;
-        }
-        else {
-            onStrike = player;
-        }
-        setStrike();
-    }
 
     public void switchStrike(){
         Player player = onStrike;

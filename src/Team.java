@@ -13,12 +13,14 @@ public class Team {
     private Player bowling;
     private ArrayList<Player> outed;
     private ArrayList<Player> yetToBat;
-    //private ArrayList<Player> bowlers;
+    public boolean battingFirst = false;
+    private Team opponent;
 
     public Team(String name, ArrayList<Player> players){
         this.name = name;
         this.players = players;
         outed = new ArrayList<>();
+        //this.match = match;
 
         for (Player player : this.players) {
             player.setTeam(this);
@@ -26,6 +28,20 @@ public class Team {
         yetToBat = this.players;
 
     }
+    public void onBatting(){
+        onPitch = new OnPitch(yetToBat.remove(0),yetToBat.remove(0));
+        bowling = null;
+    }
+    private boolean targetPassed(){
+        return !battingFirst && opponent.run() < run;
+    }
+    public boolean checkEndOfBatting(){
+        return overs >= 50 || wicket >= 10 || targetPassed();
+    }
+    public void onBowling(){
+        switchBowler();
+    }
+
 
     public String teamName(){
         return name;
@@ -72,6 +88,7 @@ public class Team {
             outed.add(onPitch.nonStrike());
         }
         onPitch.changeBatter(yetToBat.remove(0),isOnStrike);
+        wicket++;
     }
     private void switchBowler(){
         System.out.println("Enter Bowler ID:");
@@ -88,6 +105,9 @@ public class Team {
             bowling = flag;
         }
         else switchBowler();
+    }
+    public void opponent(Team team){
+        opponent = team;
     }
 
 
@@ -145,8 +165,10 @@ public class Team {
         if(balls==6){
             balls = 0;
             overs++;
-            onPitch.switchStrike();
-            switchBowler();
+            if(overs < 50){
+                onPitch.switchStrike();
+                switchBowler();
+            }
         }
     }
 
